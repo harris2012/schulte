@@ -4,6 +4,12 @@
   height: 400px;
 }
 
+.tip {
+  display: flex;
+  justify-content: center;
+  line-height: 48px;
+}
+
 .items {
   display: flex;
   justify-content: center;
@@ -19,11 +25,17 @@
   height: 20%;
   text-align: center;
   line-height: 50px;
+  justify-content: center;
+  align-items: center;
   font-size: 24px;
   cursor: pointer;
   border: 1px solid #ccc;
 
   &:hover {
     background-color: #ccc;
+  }
+
+  &.selected {
+    background-color: #eee;
   }
 }

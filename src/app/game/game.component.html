@@ -1,5 +1,5 @@
+<p class="tip">please click {{should}}</p>
+
 <div *ngIf="this.items != null" class="items">
-  <div *ngFor="let item of this.items" class="item">{{item.number}}</div>  
+  <a *ngFor="let item of this.items" [ngClass]="{'selected':item.selected}" class="item" (click)="onClick(item)">{{item.number}}</a>
 </div>
-
-
