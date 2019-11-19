@@ -15,9 +15,13 @@ export class GameComponent implements OnInit {
     status: string
 
     ngOnInit() {
+        this.onReset();
+        this.status = '已停止'
+    }
+
+    onReset() {
         this.should = 1;
         this.items = [];
-        this.status = '开始'
         for (var i = 0; i < 25; i++) {
             var item = new Item();
             item.number = i + 1;
@@ -25,6 +29,11 @@ export class GameComponent implements OnInit {
         }
 
         this.shuffle(this.items);
+    }
+
+    onStart() {
+        this.onReset();
+        this.status = '已开始';
     }
 
     onClick(item: Item) {

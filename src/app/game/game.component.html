@@ -5,5 +5,6 @@
 </div>
 
 <div class="status">
-  <a class="status-button">{{status}}</a>
+  <a class="status-button" (click)="onStart()" *ngIf="status=='已停止'">开始</a>
+  <a class="status-button" (click)="onReset()" *ngIf="status=='已开始'">停止</a>
 </div>
