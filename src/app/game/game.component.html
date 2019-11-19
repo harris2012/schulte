@@ -3,3 +3,7 @@
 <div *ngIf="this.items != null" class="items">
   <a *ngFor="let item of this.items" [ngClass]="{'selected':item.selected}" class="item" (click)="onClick(item)">{{item.number}}</a>
 </div>
+
+<div class="status">
+  <a class="status-button">{{status}}</a>
+</div>

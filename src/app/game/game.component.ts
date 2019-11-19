@@ -12,10 +12,12 @@ export class GameComponent implements OnInit {
 
     should: number;
     items: Item[];
+    status: string
 
     ngOnInit() {
         this.should = 1;
         this.items = [];
+        this.status = '开始'
         for (var i = 0; i < 25; i++) {
             var item = new Item();
             item.number = i + 1;
