@@ -1,4 +1,4 @@
-<p class="tip">please click {{should}}</p>
+<p class="tip">{{message}}</p>
 
 <div *ngIf="this.items != null" class="items">
   <a *ngFor="let item of this.items" [ngClass]="{'selected':item.selected}" class="item" (click)="onClick(item)">{{item.number}}</a>
@@ -6,5 +6,5 @@
 
 <div class="status">
   <a class="status-button" (click)="onStart()" *ngIf="status=='已停止'">开始</a>
-  <a class="status-button" (click)="onReset()" *ngIf="status=='已开始'">停止</a>
+  <a class="status-button" (click)="onStop()" *ngIf="status=='已开始'">停止</a>
 </div>

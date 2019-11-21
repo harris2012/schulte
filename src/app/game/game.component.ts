@@ -10,12 +10,18 @@ export class GameComponent implements OnInit {
 
     constructor() { }
 
+    message: string;
     should: number;
     items: Item[];
-    status: string
+    status: string;
+
+    startTime: number;
+    time: string;
+    timer: any;
 
     ngOnInit() {
         this.onReset();
+        this.message = '请点击开始';
         this.status = '已停止'
     }
 
@@ -33,7 +39,18 @@ export class GameComponent implements OnInit {
 
     onStart() {
         this.onReset();
+        this.startTime = new Date().getTime();
+        this.timer = window.setInterval(() => {
+            this.time = ((new Date().getTime() - this.startTime) / 1000).toFixed(1);
+            this.message = "请点击" + this.should + "(耗时:" + this.time + "s)";
+        }, 100)
         this.status = '已开始';
+    }
+
+    onStop() {
+        window.clearInterval(this.timer);
+        this.message = '请点击开始';
+        this.status = '已停止'
     }
 
     onClick(item: Item) {
@@ -42,6 +59,11 @@ export class GameComponent implements OnInit {
         }
         item.selected = true;
         this.should++;
+        if (this.should > 25) {
+            window.clearInterval(this.timer);
+            this.message = "已完成(耗时:" + this.time + "s)";
+            this.status = '已停止';
+        }
     }
 
     shuffle = arr => {
